@@ -21,7 +21,11 @@ function structureDisplayString($loc,$arr){
 	$retrieved_obj = $arr[(int)$loc-2];
 	$final_str = $final_str.$retrieved_obj["questionText"];
 	$options = $retrieved_obj["options"];
+	$optNumber = 0;
 	foreach ($options as $option) {
+		// Modification
+		$optNumber += 1; // either directly use this variable or
+		$option["optNumber"] = $optNumber;
 		$final_str = $final_str."\n".$option["optNumber"]." . ".$option["optionText"];
 	}
 	flog($final_str."|FUNCTION|".__FUNCTION__);
